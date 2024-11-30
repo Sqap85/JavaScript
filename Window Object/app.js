@@ -1,6 +1,7 @@
 // -----  window Nesnesi -----
 // window, tarayıcı penceresini temsil eder ve penceredeki tüm global özellikleri içerir.
 // Diğer özellikler (document, console gibi) window'un alt kümeleri veya özellikleridir.
+// window.document vb. olarak da erişilebilir, ancak genellikle sadece document vb. kullanılır, çünkü document vb. , window nesnesinin global bir özelliği olarak otomatik olarak mevcut olur.
 
 // Pencere boyutlarını almak
 console.log("Pencere genişliği:", window.innerWidth); // Tarayıcı penceresinin genişliği
