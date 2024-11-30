@@ -1,11 +1,13 @@
 // ----- 1. var Değişkeni -----
 // 'var' ile tanımlanan değişkenler fonksiyonel kapsamda geçerlidir ve globalde tanımlandığında global objeye eklenir.
-var x = 10; 
+var x = 5;
+var x = 10; // 'var' ile tanımlanan değişken birden fazla kez tanımlanabilir ve son atama geçerlidir.
 console.log("var ile tanımlanan x:", x); // 10
 
 // ----- 2. let Değişkeni -----
 // 'let' ile tanımlanan değişkenler blok kapsamlıdır, yani yalnızca tanımlandıkları blokta geçerlidir.
 let y = 20; 
+//let y = 10; hata: 'let' ile aynı ismi tekrar kullanamazsınız.
 console.log("let ile tanımlanan y:", y); // 20
 if (true) {
     let y = 30; // Bu 'y' sadece if bloğunda geçerlidir
@@ -14,10 +16,16 @@ if (true) {
 console.log("Dıştaki let ile tanımlanan y:", y); // 20
 
 // ----- 3. const Değişkeni -----
-// 'const' ile tanımlanan değişkenler sabittir, yani değeri bir kez atandıktan sonra değiştirilemez.
+// 'const' ile tanımlanan değişkenler sabittir ve değeri bir kez atandıktan sonra değiştirilemez.
+// 'const' aynı zamanda blok kapsamlıdır, yani yalnızca tanımlandığı blokta geçerlidir.
 const z = 40;
 console.log("const ile tanımlanan z:", z); // 40
-//z = 50; // Hata: Değeri değiştirilemez
+//z = 50; // Hata: 'const' ile tanımlanan değişkenin değeri değiştirilemez.
+if (true) {
+    const z = 50; // Bu 'z' sadece if bloğunda geçerlidir
+    console.log("Blok içindeki const ile tanımlanan z:", z); // 50
+}
+console.log("Dıştaki const ile tanımlanan z:", z); // 40
 
 // ----- 4. Symbol -----
 /**
