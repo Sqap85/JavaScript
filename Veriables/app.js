@@ -28,54 +28,39 @@ if (true) {
 console.log("Dıştaki const ile tanımlanan z:", z); // 40
 
 // ----- 4. Symbol -----
-/**
- * 'Symbol' benzersiz bir değer oluşturur. Her çağrıldığında farklı bir sembol döner.
- * Genellikle nesne özellikleri olarak kullanılır.
- */
+// 'Symbol' benzersiz bir değer oluşturur. Her çağrıldığında farklı bir sembol döner.
+// Genellikle nesne özellikleri olarak kullanılır.
 const sym1 = Symbol("benzersiz");
 const sym2 = Symbol("benzersiz");
 console.log("Symbol karşılaştırması (farklı mı?):", sym1 === sym2); // false, her 'Symbol' benzersizdir
 
 // ----- 5. BigInt -----
-/**
- * 'BigInt', çok büyük tam sayıları tutmak için kullanılır.
- * JavaScript'teki normal sayı türü (Number) belirli bir büyüklüğe kadar olan tam sayıları tutabilir,
- * ancak BigInt, çok daha büyük sayılar için uygundur.
- */
+// 'BigInt', çok büyük tam sayıları tutmak için kullanılır.
 const bigNum = BigInt(123456789012345678901234567890);
 console.log("BigInt değeri:", bigNum); // 123456789012345678901234567890n
 
 // ----- 6. Global Değişkenler -----
-/**
- * 'var' ile tanımlanan global değişkenler, global object'e (tarayıcıda 'window' nesnesine) eklenir.
- * 'let' ve 'const' ile tanımlanan global değişkenler global object'e eklenmez.
- */
+// 'var' ile tanımlanan global değişkenler global objeye eklenir, 'let' ve 'const' eklenmez.
 var globalVar = "Global var değişkeni";
 console.log("Global var ile tanımlanan değişken:", globalVar); // Global var değişkeni
 
 let globalLet = "Global let değişkeni";
-console.log("window.globalLet:", window.globalLet); // undefined, çünkü let ile tanımlanan global değişken window'a eklenmez
+console.log("window.globalLet:", window.globalLet); // undefined
 
 const globalConst = "Global const değişkeni";
-console.log("window.globalConst:", window.globalConst); // undefined, çünkü const ile tanımlanan global değişken window'a eklenmez
+console.log("window.globalConst:", window.globalConst); // undefined
 
 // ----- 7. Global Object (window) -----
-/**
- * Tarayıcıda globalde tanımlanan 'var' değişkenleri, 'window' objesine eklenir.
- * 'let' ve 'const' ile tanımlanan değişkenler ise global objeye eklenmez.
- */
-console.log("window.globalVar (global var):", window.globalVar); // Global var değişkeni (Tarayıcıda window'a eklenir)
-console.log("window.x (window'da var mı?):", window.x); // undefined (let ile tanımlandığı için window'a eklenmez)
+console.log("window.globalVar:", window.globalVar); // Global var değişkeni
+console.log("window.x:", window.x); // undefined
 
 // ----- 8. function Değişkeni -----
-// Fonksiyonlar da bir tür değişkendir. 'function' ile fonksiyonlar tanımlanabilir.
 function greet() {
     console.log("Merhaba, ben bir fonksiyonum!");
 }
 greet(); // Merhaba, ben bir fonksiyonum!
 
 // ----- 9. class Değişkeni -----
-// Sınıflar (classes) JavaScript'te nesne oluşturmak için kullanılır.
 class Person {
     constructor(name) {
         this.name = name;
@@ -86,3 +71,16 @@ class Person {
 }
 let person = new Person("Ahmet");
 person.sayHello(); // Merhaba, benim adım Ahmet
+
+// ----- 10. Object -----
+const user = {
+    username: "user123",
+    email: "user@example.com",
+    loginCount: 0,
+    login: function() {
+        this.loginCount++;
+        console.log(`${this.username} giriş yaptı. Toplam giriş sayısı: ${this.loginCount}`);
+    }
+};
+user.login(); // user123 giriş yaptı. Toplam giriş sayısı: 1
+console.log(user.username); // user123
