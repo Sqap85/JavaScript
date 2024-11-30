@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakpoint Kullanımı</title>
+</head>
+<body>
+
+    <h2>Breakpoint Kullanımı Örneği</h2>
+    <button onclick="calculate()">Hesapla</button>
+
+    <script>
+        function calculate() {
+            let a = 5;
+            let b = 10;
+            debugger;  // Burada breakpoint olacak, kod burada duracak
+                       // sag tiklayip sorce kismina git, butona tiklaninca debugger aktif olacak.
+            let sum = a + b;
+            alert("Toplam: " + sum);
+        }
+    </script>
+    
+</body>
+</html>
