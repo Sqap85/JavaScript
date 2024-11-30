@@ -80,6 +80,9 @@ const user = {
     login: function() {
         this.loginCount++;
         console.log(`${this.username} giriş yaptı. Toplam giriş sayısı: ${this.loginCount}`);
+        // Template literals, JavaScript'te string oluşturmanın modern bir yoludur.
+        // ` ile tanımlanır.
+        // ${} kullanılarak string içine değişkenler veya ifadeler kolayca eklenir.
     }
 };
 user.login(); // user123 giriş yaptı. Toplam giriş sayısı: 1
