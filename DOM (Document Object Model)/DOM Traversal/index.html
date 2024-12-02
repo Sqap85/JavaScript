@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Üzerinde Gezinme Örnekleri</title>
+    <style>
+        .highlight { color: blue; font-weight: bold; }
+        .container { border: 2px solid black; padding: 10px; margin-top: 10px; }
+        .item { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <!-- HTML Elemanları -->
+    <div id="header">Başlık</div>
+    <p class="text">Paragraf 1</p>
+    <p class="text">Paragraf 2</p>
+    <p>Paragraf 3</p>
+    <div class="container">
+        <div class="child">Çocuk Eleman</div>
+    </div>
+    <ul class="list">
+        <li class="item">Öğe 1</li>
+        <li class="item">Öğe 2</li>
+        <li class="item">Öğe 3</li>
+    </ul>
+
+    <script>
+        // ----- 1. getElementById ile gezinme -----
+        const header = document.getElementById("header");
+        console.log("Başlık innerHTML öncesi:", header.innerHTML);
+        header.innerHTML = "<span style='color: red;'>Güncellenmiş Başlık</span>";
+        console.log("Başlık innerHTML sonrası:", header.innerHTML);
+
+        // ----- 2. getElementsByClassName ile gezinme -----
+        const texts = document.getElementsByClassName("text");
+        console.log("Paragraf 1 textContent öncesi:", texts[0].textContent);
+        texts[0].textContent = "Paragraf 1 içerik değiştirildi.";
+        console.log("Paragraf 1 textContent sonrası:", texts[0].textContent);
+
+        // ----- 3. getElementsByTagName ile gezinme -----
+        const paragraphs = document.getElementsByTagName("p");
+        console.log("Paragraf 3 outerHTML öncesi:", paragraphs[2].outerHTML);
+        paragraphs[2].outerHTML = "<p style='color: green;'>Paragraf 3 yeniden oluşturuldu!</p>";
+        console.log("Paragraf 3 outerHTML sonrası: (DOM'dan kaldırıldı ve yenisi eklendi)");
+
+        // ----- 4. querySelector ile gezinme -----
+        const firstText = document.querySelector(".text");
+        console.log("İlk Paragraf textContent öncesi:", firstText.textContent);
+        firstText.textContent = "QuerySelector ile değiştirilen içerik.";
+        console.log("İlk Paragraf textContent sonrası:", firstText.textContent);
+
+        // ----- 5. querySelectorAll ile gezinme -----
+        const allTexts = document.querySelectorAll(".text");
+        allTexts.forEach((text, index) => {
+            text.innerHTML = `Paragraf ${index + 1} içeriği <b>güncellendi</b>.`;
+            console.log(`querySelectorAll ile seçilen [${index}] innerHTML sonucu:`, text.innerHTML);
+        });
+
+        // ----- 6. closest ile gezinme -----
+        const child = document.querySelector(".child");
+        const parent = child.closest(".container");
+        console.log("Çocuk elemanın içeriği (textContent):", child.textContent);
+        parent.innerHTML += "<p>Container'a yeni bir paragraf eklendi.</p>";
+        console.log("closest ile seçilen ebeveynin innerHTML sonucu:", parent.innerHTML);
+
+        // ----- 7. matches ile doğrulama -----
+        if (header.matches("#header")) {
+            header.innerHTML += " (Doğrulandı!)";
+            console.log("Header matches ile doğrulandı ve innerHTML güncellendi:", header.innerHTML);
+        }
+
+        // ----- 8. parentNode, childNodes, nextSibling, previousSibling ile gezinme -----
+        const container = document.querySelector('.container');
+        console.log("Container ebeveyn:", container.parentNode); // Ebeveyn eleman
+        const children = container.childNodes;
+        children.forEach(childNode => {
+            if (childNode.nodeType === 1) { // Element Node'larını al
+                console.log("Çocuk Eleman:", childNode);
+            }
+        });
+
+        // ----- 9. siblings (nextSibling ve previousSibling) -----
+        const firstItem = document.querySelector('.item');
+        console.log("Sonraki kardeş öğe:", firstItem.nextSibling); // Sonraki öğe
+        console.log("Önceki kardeş öğe:", firstItem.previousSibling); // Önceki öğe
+
+        // ----- 10. children ile gezinme -----
+        const itemsContainer = document.querySelector('.list');
+        const listItems = itemsContainer.children; // Sadece çocuk elementleri al
+        for (let i = 0; i < listItems.length; i++) {
+            console.log(`Öğe ${i + 1}:`, listItems[i].textContent);
+            listItems[i].style.color = "purple"; // Her öğenin rengini mor yap
+        }
+
+        // ----- Özet -----
+        console.log("Tüm gezinme ve manipülasyonlar başarıyla gerçekleştirildi!");
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript ile Style Kullanımı</title>
+    <style>
+        .example { font-size: 16px; color: black; }
+    </style>
+</head>
+<body>
+    <h1 id="header" class="example">Merhaba Dünya</h1>
+    <p class="text">Bu bir paragraftır.</p>
+    <p class="text">Başka bir paragraf.</p>
+
+    <script>
+        // ----- 1. getElementById -----
+        const header = document.getElementById("header");
+        header.style.color = "blue"; // Başlık rengini mavi yap
+        header.style.fontSize = "24px"; // Yazı boyutunu artır
+        header.style.textAlign = "center"; // Ortala
+        console.log("Header yeni stiller uygulandı:", header.style.cssText);
+
+        // ----- 2. getElementsByClassName -----
+        const texts = document.getElementsByClassName("text");
+        for (let i = 0; i < texts.length; i++) {
+            texts[i].style.color = "green"; // Paragrafları yeşil yap
+            texts[i].style.fontStyle = "italic"; // Yazıyı italik yap
+        }
+
+        // ----- 3. querySelector -----
+        const firstParagraph = document.querySelector(".text");
+        firstParagraph.style.backgroundColor = "lightgray"; // İlk paragrafın arka plan rengini gri yap
+
+        // ----- 4. querySelectorAll -----
+        const allParagraphs = document.querySelectorAll(".text");
+        allParagraphs.forEach((para, index) => {
+            para.style.margin = `${10 * (index + 1)}px`; // Her paragrafa farklı margin ekle
+            para.style.padding = "10px"; // Padding ekle
+            para.style.border = "1px solid black"; // Çerçeve ekle
+        });
+    </script>
+</body>
+</html>

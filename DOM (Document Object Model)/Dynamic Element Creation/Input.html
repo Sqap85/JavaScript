@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinamik Element Oluşturma ve Kullanıcı Girişi</title>
+</head>
+<body>
+
+    <!-- Kullanıcının metin girmesi için input alanı -->
+    <input type="text" id="userInput" placeholder="Birşeyler yaz lolipop">
+    <button id="addButton">Ekle</button>
+
+    <!-- Dinamik öğe ekleyeceğimiz alan -->
+    <div id="content"></div>
+    
+    <script>
+        // Butona tıklama olayı
+        document.getElementById("addButton").addEventListener("click", function() {
+            // Kullanıcıdan alınan değeri al
+            const userText = document.getElementById("userInput").value;
+
+            // Eğer kullanıcı bir şey yazmamışsa uyarı ver
+            if (userText.trim() === "") {
+                alert("Lütfen bir şeyler yazın!");
+                return;
+            }
+
+            // 1. Yeni bir <p> (paragraf) elementi oluştur
+            const newParagraph = document.createElement("p");
+
+            // 2. Paragrafa içerik ekle (kullanıcının girdiği metin)
+            newParagraph.textContent = userText;
+
+            // 3. Yeni paragrafı içerik alanına ekle
+            const contentDiv = document.getElementById("content");
+            contentDiv.appendChild(newParagraph);
+
+            // Input alanını temizle
+            document.getElementById("userInput").value = "";
+        });
+    </script>
+
+</body>
+</html>

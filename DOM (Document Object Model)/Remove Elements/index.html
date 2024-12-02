@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Removal Example</title>
+</head>
+<body>
+
+    <h2>Shopping List</h2>
+    <ul id="shoppingList">
+        <li class="item">Milk <button class="remove-btn">Remove</button></li>
+        <li class="item">Bread <button class="remove-btn">Remove</button></li>
+        <li class="item">Eggs <button class="remove-btn">Remove</button></li>
+        <li class="item">Butter <button class="remove-btn">Remove</button></li>
+    </ul>
+
+    <script>
+        // Select all the "Remove" buttons
+        const removeButtons = document.querySelectorAll(".remove-btn");
+
+        // Loop through each button and add an event listener to remove the parent list item when clicked
+        removeButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const listItem = button.parentNode; // Get the parent <li> of the clicked button
+                listItem.remove(); // Remove the list item from the DOM
+            });
+        });
+    </script>
+
+</body>
+</html>

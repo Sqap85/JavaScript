@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Seçiciler ve Kullanımları</title>
+    <style>
+        .highlight { color: blue; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <!-- HTML Elemanları -->
+    <div id="header">Başlık</div>
+    <p class="text">Paragraf 1</p>
+    <p class="text">Paragraf 2</p>
+    <p>Paragraf 3</p>
+    <div class="container">
+        <div class="child">Çocuk Eleman</div>
+    </div>
+    <ul class="list">
+        <li class="item">Öğe 1</li>
+        <li class="item">Öğe 2</li>
+        <li class="item">Öğe 3</li>
+    </ul>
+
+    <script>
+        // ----- 1. getElementById -----
+        // Belirli bir ID'ye sahip elemanı seçer.
+        const header = document.getElementById("header");
+        console.log("Başlık innerHTML öncesi:", header.innerHTML);
+        header.innerHTML = "<span style='color: red;'>Güncellenmiş Başlık</span>";
+        console.log("Başlık innerHTML sonrası:", header.innerHTML);
+
+        // ----- 2. getElementsByClassName -----
+        // Belirli bir class'a sahip tüm elemanları seçer (HTMLCollection olarak döner).
+        const texts = document.getElementsByClassName("text");
+        console.log("Paragraf 1 textContent öncesi:", texts[0].textContent);
+        texts[0].textContent = "Paragraf 1 içerik değiştirildi.";
+        console.log("Paragraf 1 textContent sonrası:", texts[0].textContent);
+
+        // ----- 3. getElementsByTagName -----
+        // Belirli bir etiket adına sahip tüm elemanları seçer (HTMLCollection olarak döner).
+        const paragraphs = document.getElementsByTagName("p");
+        console.log("Paragraf 3 outerHTML öncesi:", paragraphs[2].outerHTML);
+        paragraphs[2].outerHTML = "<p style='color: green;'>Paragraf 3 yeniden oluşturuldu!</p>";
+        console.log("Paragraf 3 outerHTML sonrası: (DOM'dan kaldırıldı ve yenisi eklendi)");
+
+        // ----- 4. querySelector -----
+        // Belirli bir CSS seçiciye sahip **ilk** elemanı seçer.
+        const firstText = document.querySelector(".text");
+        console.log("İlk Paragraf textContent öncesi:", firstText.textContent);
+        firstText.textContent = "QuerySelector ile değiştirilen içerik.";
+        console.log("İlk Paragraf textContent sonrası:", firstText.textContent);
+
+        // ----- 5. querySelectorAll -----
+        // Belirli bir CSS seçiciye sahip **tüm** elemanları seçer (NodeList olarak döner).
+        const allTexts = document.querySelectorAll(".text");
+        allTexts.forEach((text, index) => {
+            text.innerHTML = `Paragraf ${index + 1} içeriği <b>güncellendi</b>.`;
+            console.log(`querySelectorAll ile seçilen [${index}] innerHTML sonucu:`, text.innerHTML);
+        });
+
+        // ----- 6. closest -----
+        // Belirli bir elemanın en yakın eşleşen üst (ebeveyn) elemanını bulur.
+        const child = document.querySelector(".child");
+        const parent = child.closest(".container");
+        console.log("Çocuk elemanın içeriği (textContent):", child.textContent);
+        parent.innerHTML += "<p>Container'a yeni bir paragraf eklendi.</p>";
+        console.log("closest ile seçilen ebeveynin innerHTML sonucu:", parent.innerHTML);
+
+        // ----- 7. matches -----
+        // Belirli bir elemanın CSS seçiciyle eşleşip eşleşmediğini kontrol eder.
+        if (header.matches("#header")) {
+            header.innerHTML += " (Doğrulandı!)";
+            console.log("Header matches ile doğrulandı ve innerHTML güncellendi:", header.innerHTML);
+        }
+
+        // ----- Ekstra: querySelector ve matches Kombinasyonu -----
+        const listItem = document.querySelector(".item");
+        if (listItem.matches(".item")) {
+            listItem.textContent = "İlk öğe içeriği değiştirildi.";
+            console.log("İlk öğe textContent sonucu:", listItem.textContent);
+        }
+
+        // ----- Özet Tüm Seçicilerin Çalıştığını Göster -----
+        console.log("Tüm seçiciler başarıyla kullanıldı ve manipüle edildi!");
+    </script>
+</body>
+</html>

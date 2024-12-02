@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Manipülasyonu</title>
+</head>
+<body>
+
+    <!-- HTML Elemanları -->
+    <div id="container">
+        <p id="para1">Bu, eski paragraf.</p>
+        <p id="para2">Paragraf 2</p>
+    </div>
+
+    <button id="replaceButton">Eski Paragrafı Değiştir</button>
+    <button id="addButton">Yeni Paragraf Ekle</button>
+    <button id="removeButton">Paragrafı Sil</button>
+    <button id="replaceTextButton">Metni Değiştir</button>
+
+    <script>
+        // DOM öğelerini seç
+        const container = document.getElementById("container");
+        const para1 = document.getElementById("para1");
+        const para2 = document.getElementById("para2");
+        const replaceButton = document.getElementById("replaceButton");
+        const addButton = document.getElementById("addButton");
+        const removeButton = document.getElementById("removeButton");
+        const replaceTextButton = document.getElementById("replaceTextButton");
+
+        // replaceChild: Eski paragrafı yeni bir paragraf ile değiştir
+        replaceButton.addEventListener("click", function() {
+            const newPara = document.createElement("p");
+            newPara.textContent = "Bu, yeni paragraf!";
+            container.replaceChild(newPara, para1);
+            console.log("replaceChild ile eski paragraf yerine yeni paragraf eklendi.");
+        });
+
+        // createElement ve appendChild: Yeni bir paragraf ekle
+        addButton.addEventListener("click", function() {
+            const newPara = document.createElement("p");
+            newPara.textContent = "Bu, dinamik olarak eklenen yeni bir paragraftır.";
+            container.appendChild(newPara);
+            console.log("Yeni paragraf eklendi.");
+        });
+
+        // removeChild: Paragrafı sil
+        removeButton.addEventListener("click", function() {
+            if (para2) {
+                container.removeChild(para2);
+                console.log("Paragraf 2 silindi.");
+            } else {
+                console.log("Paragraf 2 zaten silindi.");
+            }
+        });
+
+        // replace: Metni değiştirme (String üzerinde)
+        replaceTextButton.addEventListener("click", function() {
+            let text = para1.textContent;
+            let updatedText = text.replace("eski", "yeni");
+            para1.textContent = updatedText;
+            console.log("Metin 'eski' yerine 'yeni' ile değiştirildi.");
+        });
+    </script>
+
+</body>
+</html>

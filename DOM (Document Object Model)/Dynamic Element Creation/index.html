@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinamik Element Oluşturma</title>
+</head>
+<body>
+
+    <!-- Dinamik öğe ekleyeceğimiz alan -->
+    <div id="content"></div>
+    
+    <script>
+        // 1. Yeni bir <button> elementi oluştur
+        const newButton = document.createElement("button");
+        newButton.textContent = "Tıkla Lolipop!";
+        
+        // Butonu içerik alanına ekle
+        const contentDiv = document.getElementById("content");
+        contentDiv.appendChild(newButton);
+
+        // 2. Butona bir event listener ekleyerek tıklandığında yeni paragraf ekle
+        newButton.addEventListener("click", function() {
+            // 3. Yeni bir <p> (paragraf) elementi oluştur
+            const newParagraph = document.createElement("p");
+
+            // 4. Paragrafa içerik ekle
+            newParagraph.textContent = "HAYATIN MANASINI S2M";
+
+            // 5. Yeni paragrafı içerik alanına ekle
+            contentDiv.appendChild(newParagraph);
+        });
+    </script>
+
+</body>
+</html>
