@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Event Örnekleri</title>
+  <style>
+    #mouseDiv {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 10px;
+      text-align: center;
+      line-height: 100px;
+      border: 1px solid #000;
+    }
+
+    form {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mouseDiv">Fare ile etkileşim için buraya tıkla.</div>
+
+  <form id="myForm">
+    <input id="myInput" type="text" placeholder="Bir şey yaz..." />
+    <button type="submit">Gönder</button>
+  </form>
+
+  <script>
+    // Mouse Event'leri
+    const mouseDiv = document.getElementById('mouseDiv');
+    mouseDiv.addEventListener('click', () => console.log('Div tıklandı!'));
+    mouseDiv.addEventListener('dblclick', () => console.log('Div çift tıklandı!'));
+    mouseDiv.addEventListener('mousedown', () => console.log('Mouse basılı tutuldu!'));
+    mouseDiv.addEventListener('mouseup', () => console.log('Mouse bırakıldı!'));
+    mouseDiv.addEventListener('mousemove', () => console.log('Mouse hareket ediyor!'));
+    mouseDiv.addEventListener('mouseover', () => console.log('Mouse üzerine geldi!'));
+    mouseDiv.addEventListener('mouseout', () => console.log('Mouse üzerinden ayrıldı!'));
+
+    // Keyboard Event'leri
+    document.addEventListener('keydown', (event) => console.log(`Tuş basıldı: ${event.key}`));
+    document.addEventListener('keyup', (event) => console.log(`Tuş bırakıldı: ${event.key}`));
+
+    // Form Event'leri
+    const myForm = document.getElementById('myForm');
+    myForm.addEventListener('submit', (event) => {
+      event.preventDefault(); // Formun varsayılan submit davranışını engelle
+      console.log('Form gönderildi!');
+    });
+    const myInput = document.getElementById('myInput');
+    myInput.addEventListener('change', () => console.log('Input değeri değişti!'));
+    myInput.addEventListener('focus', () => console.log('Input odaklandı!'));
+    myInput.addEventListener('blur', () => console.log('Input odak kaybetti!'));
+
+    // Window Event'leri
+    window.addEventListener('load', () => console.log('Sayfa tamamen yüklendi!'));
+    window.addEventListener('resize', () => console.log('Pencere boyutu değişti!'));
+    window.addEventListener('scroll', () => console.log('Sayfa kaydırıldı!'));
+
+    // DOM Event'leri
+    document.addEventListener('DOMContentLoaded', () => console.log('DOM tamamen yüklendi!'));
+    document.addEventListener('visibilitychange', () => console.log('Sayfa görünürlüğü değişti:', document.visibilityState));
+
+    // Genel bir Event Listener
+    document.addEventListener('click', (event) => {
+      console.log('Tıklanan element:', event.target);
+      console.log('Mouse koordinatları:', event.clientX, event.clientY);
+    });
+  </script>
+</body>
+</html>
