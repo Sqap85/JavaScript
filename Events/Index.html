@@ -41,7 +41,9 @@
     // Keyboard Event'leri
     document.addEventListener('keydown', (event) => console.log(`Tuş basıldı: ${event.key}`));
     document.addEventListener('keyup', (event) => console.log(`Tuş bırakıldı: ${event.key}`));
-
+    // keypress sadece harf ve sayilara tiklandiginda calisir.
+    document.addEventListener('keypress', (event) => console.log(`Tuş yazıldı: ${event.key}`));
+    
     // Form Event'leri
     const myForm = document.getElementById('myForm');
     myForm.addEventListener('submit', (event) => {
