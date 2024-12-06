@@ -54,6 +54,13 @@
     myInput.addEventListener('change', () => console.log('Input değeri değişti!'));
     myInput.addEventListener('focus', () => console.log('Input odaklandı!'));
     myInput.addEventListener('blur', () => console.log('Input odak kaybetti!'));
+    myInput.addEventListener('paste', () => console.log('Bir şey yapıştırıldı!'));
+    myInput.addEventListener('copy', () => console.log('Bir şey kopyalandı!'));
+    myInput.addEventListener('cut', () => console.log('Bir şey kesildi!'));
+    myInput.addEventListener('select', () => {
+        const selectedText = myInput.value.substring(myInput.selectionStart, myInput.selectionEnd);
+        console.log(`Bir metin seçildi: ${selectedText}`);
+    });
 
     // Window Event'leri
     window.addEventListener('load', () => console.log('Sayfa tamamen yüklendi!'));
@@ -69,6 +76,14 @@
       console.log('Tıklanan element:', event.target);
       console.log('Mouse koordinatları:', event.clientX, event.clientY);
     });
+
+    //ornek formun icinde e butonuna tiklanirsa bildirir
+    myForm.addEventListener('keydown', (event) => {
+      if (event.key === 'e' || event.key === 'E') { // Hem küçük 'q' hem büyük 'Q' için
+          console.log("E tuşuna bastınız!");
+          alert("E tuşuna bastınız!");
+      }
+  });
   </script>
 </body>
 </html>
