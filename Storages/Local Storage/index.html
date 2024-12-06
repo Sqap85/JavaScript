@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Örneği</title>
+</head>
+<body>
+    <h1>Local Storage Kullanımı</h1>
+
+    <label for="name">Adınız: </label>
+    <input type="text" id="name" placeholder="Adınızı girin">
+    <br><br>
+    
+    <label for="age">Yaşınız: </label>
+    <input type="number" id="age" placeholder="Yaşınızı girin">
+    <br><br>
+
+    <button onclick="saveData()">Verileri Kaydet</button>
+    <button onclick="clearData()">Verileri Temizle</button>
+    
+    <h2>Kaydedilen Bilgiler:</h2>
+    <p><strong>Ad: </strong><span id="savedName">Henüz kaydedilmedi</span></p>
+    <p><strong>Yaş: </strong><span id="savedAge">Henüz kaydedilmedi</span></p>
+
+    <script src="script.js"></script>
+</body>
+</html>

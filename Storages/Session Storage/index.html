@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage Örneği</title>
+</head>
+<body>
+    <h1>Session Storage ile Kullanıcı Bilgisi</h1>
+    
+    <!-- Kullanıcı Bilgilerini Almak İçin Form -->
+    <form id="userForm">
+        <label for="username">Kullanıcı Adı:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <button type="submit">Verileri Kaydet</button>
+    </form>
+    
+    <h2>Session Storage'dan Veriler:</h2>
+    <p><strong>Kullanıcı Adı:</strong> <span id="storedUsername">Henüz kaydedilmedi</span></p>
+    <p><strong>E-posta:</strong> <span id="storedEmail">Henüz kaydedilmedi</span></p>
+
+    <script src="script.js"></script> <!-- JavaScript dosyasını dışarıdan çağırma -->
+</body>
+</html>
