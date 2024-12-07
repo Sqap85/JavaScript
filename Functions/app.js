@@ -26,6 +26,12 @@ greetPerson(); // Merhaba, Misafir
 let multiply = (a, b) => a * b;
 console.log("Çarpma Sonucu:", multiply(4, 3)); // Çarpma Sonucu: 12
 
+const greet = () => {
+    console.log("Hello, world!");
+  };
+  greet(); // Çıktı: Hello, world!
+
+
 // ----- 5. Rest Parametreleri -----
 // Birden fazla sayıyı toplayan fonksiyon
 function sumAll(...numbers) {
