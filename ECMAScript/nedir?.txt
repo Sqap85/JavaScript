@@ -1,0 +1,23 @@
+ECMAScript, JavaScript ve diğer benzer dillerin temeli olan bir standarttır. Bu standart, dillerin nasıl çalışması gerektiğini tanımlar ve böylece farklı platformlar ve tarayıcılar arasında uyumluluk sağlar.
+
+ECMA-262 Standardı
+
+ECMAScript, ECMA International adlı organizasyon tarafından oluşturulan ECMA-262 adlı bir standartla tanımlanır. Bu standart, JavaScript, JScript ve ActionScript gibi dillerin ortak temelini oluşturur. Bu nedenle, ECMAScript’in güncellenmiş sürümleri, JavaScript’in yeni özellikleri ve işlevselliğiyle uyumlu olmasını sağlar.
+
+ECMA ve JavaScript Arasındaki İlişki
+
+JavaScript, ECMAScript’in en popüler uygulamasıdır. JavaScript, tarayıcılar ve sunucular (Node.js gibi) üzerinde çalışan bir dil olup, ECMAScript standardını takip eder. Yani, JavaScript’in ne yapması gerektiği, ECMAScript tarafından belirlenirken, JavaScript bu kuralları uygulayan dil olarak ortaya çıkar.
+
+ECMAScript Sürümleri
+
+ECMAScript’in farklı sürümleri, dilin gelişimini ve özelliklerinin zamanla nasıl değiştiğini gösterir. Bazı önemli sürümler şunlardır:
+	•	ECMAScript 3 (1999): JavaScript’in ilk yaygın sürümü.
+	•	ECMAScript 5 (2009): JavaScript’e yeni özellikler ekledi, örneğin strict mode (katı mod) ve bazı yeni API’ler.
+	•	ECMAScript 6 (2015, ES6 veya ES2015 olarak da bilinir): JavaScript’e büyük değişiklikler ve yeni özellikler getirdi, örneğin let, const, arrow fonksiyonlar (=>), classes, modules ve Promises gibi yapılar.
+	•	ECMAScript 2016 (ES7) ve sonrası: Her yıl yeni sürümler yayımlandı ve genellikle daha küçük özellik eklemeleri yapıldı.
+
+ECMAScript’in Rolü
+
+ECMAScript, JavaScript’in evrimini yönlendirir ve dilin tutarlı bir şekilde gelişmesini sağlar. Her yeni sürümde, geliştiricilerin ihtiyaçlarına göre yeni özellikler eklenir, eski özellikler ise daha güvenli veya daha verimli hale getirilir.
+
+Özetle, ECMAScript, JavaScript’in temelini oluşturan bir standarttır ve bu standart JavaScript’in özelliklerini tanımlar. JavaScript, bu standarda uygun olarak çalışır, böylece farklı tarayıcılar ve ortamlar arasında tutarlılık sağlanır.
