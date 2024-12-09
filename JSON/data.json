@@ -1,0 +1,42 @@
+{
+    "artist": {
+      "stage_name": "2Pac",
+      "real_name": "Tupac Amaru Shakur",
+      "birth_date": "1971-06-16",
+      "death_date": "1996-09-13",
+      "origin": "New York City, USA"
+    },
+    "music": {
+      "genres": ["Hip Hop", "West Coast Hip Hop", "Gangsta Rap", "Conscious Rap"],
+      "albums": [
+        {
+          "title": "2Pacalypse Now",
+          "release_year": 1991,
+          "hit_songs": ["Brenda's Got a Baby", "Trapped"]
+        },
+        {
+          "title": "Strictly 4 My N.I.G.G.A.Z.",
+          "release_year": 1993,
+          "hit_songs": ["Keep Ya Head Up", "I Get Around"]
+        },
+        {
+          "title": "Me Against the World",
+          "release_year": 1995,
+          "hit_songs": ["Dear Mama", "So Many Tears"]
+        },
+        {
+          "title": "All Eyez on Me",
+          "release_year": 1996,
+          "hit_songs": ["California Love", "2 of Amerikaz Most Wanted", "Ambitionz Az a Ridah"]
+        }
+      ],
+      "notable_songs": ["Changes", "Hail Mary", "Life Goes On", "Hit 'Em Up"]
+    },
+    "legacy": {
+      "influence": "One of the most influential rappers of all time.",
+      "themes": ["Social justice", "Racism", "Poverty", "Violence"],
+      "awards": ["Rock and Roll Hall of Fame (2017)"],
+      "posthumous_releases": 7
+    }
+  }
+  
