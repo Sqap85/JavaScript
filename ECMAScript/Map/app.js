@@ -52,6 +52,22 @@ for (let [key, value] of map) {
 console.log("\n'city' anahtarı var mı?", map.has('city')); // false
 console.log("\n100 anahtarının değeri:", map.get(100)); // hundred
 
+// Kurslar dizisi
+const courses = [
+  { id: 1, name: "React 101", instructor: "John Doe", duration: 10 },
+  { id: 2, name: "Advanced JavaScript", instructor: "Jane Smith", duration: 15 },
+  { id: 3, name: "CSS for Beginners", instructor: "Alice Johnson", duration: 8 },
+];
+
+// Map ile kursları formatlayarak bir liste oluşturuyoruz
+const formattedCourses = courses.map((course) => {
+  return `Kurs Adı: ${course.name}, Eğitmen: ${course.instructor}, Süre: ${course.duration} saat`;
+});
+
+// Sonuçları yazdırma
+console.log("Formatlanmış Kurslar:");
+formattedCourses.forEach((course) => console.log(course));
+
 // Tüm öğeleri temizleme
 map.clear();
 console.log("\nMap'i temizledikten sonra:", map); // Map(0) {}
